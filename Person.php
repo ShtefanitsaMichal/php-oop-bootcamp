@@ -9,10 +9,24 @@ class Person {
         
         $this-> name = $name;
     }
+
+    public function getAge(){
+        return $this -> age * 365 ;
+    }
+
+    public function setAge($age){
+
+        if ($age < 18) {
+            throw new Exception("Pearson is not old enough");
+        }
+        $this->age=$age;
+    }
 }
 
 $michal = new Person("Michal Sztefanica");
-$michal -> age = 28;
-$michal -> age++;
 
-var_dump($michal);
+$michal -> setAge(30);
+$michal -> age = 3;
+
+
+var_dump($michal -> getAge());
