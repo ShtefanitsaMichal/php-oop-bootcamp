@@ -1,40 +1,51 @@
 <?php
 
-abstract class Shape{
-    protected $color;
+    abstract class Shape{
+        protected $color;
 
-    public function __construct($color = "red")
-    {
+        public function __construct($color = "red")
+        {
 
+        }
+
+        public function getColor()
+        {
+            return $this->color; 
+        }
     }
 
-    public function getColor()
-    {
-        return $this->color;
+    class Square extends Shape{
+
+        protected $length = 4; 
+
+        public function GetArea(){
+            return pow($this -> length, 2); 
+        }
+        
     }
-}
 
-class Square extends Shape{
+    class Triangle extends Shape{
 
-    protected $length = 4; 
+        protected $base = 4;
+        protected $height = 7; 
 
-    public function GetArea(){
-        return pow($this -> length, 2);
+        public function GetArea(){
+        return .5*$this->base*$this->hight;
+        }
+        
     }
-    
-}
 
-class Triangle extends Shape{
+    class Circle extends Shape{
+        Protected $radius = 12;
 
-    protected $base = 4;
-    protected $height = 7; 
-
-    public function GetArea(){
-       return .5*$this->base*$this->hight;
+        public function GetArea(){
+            return M_PI * pow($this->radius, 2);
+        }
     }
-    
-}
 
-var_dump(new Square())->getColor();
+    $circle = new Circle;
+
+    echo $circle->GetArea();
+    echo "\n"
  
  ?>
