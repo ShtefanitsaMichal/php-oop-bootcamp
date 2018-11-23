@@ -1,51 +1,44 @@
 <?php
 
-    abstract class Shape{
-        protected $color;
+    class Person {
+        protected $name;
 
-        public function __construct($color = "red")
+        public function __cunstruct($name){
+            $this -> name = $name; 
+        }
+    };
+
+    class Business {
+
+        protected $staff; 
+
+        public function __cunstruct(Staff  $staff)
         {
-
+            $this -> staff = $staff;
         }
 
-        public function getColor()
+        public function hire(Person  $person)
         {
-            return $this->color; 
+            $this -> staff -> add($person);
         }
-    }
+    };
 
-    class Square extends Shape{
+    class Staff {
+        protected $members = []; 
 
-        protected $length = 4; 
-
-        public function GetArea(){
-            return pow($this -> length, 2); 
+        public function add(Person $person)
+        {
+            $this -> members[] = $person;
         }
-        
-    }
+    };
 
-    class Triangle extends Shape{
+    $jeffrey = new Person('Jefrey White');
 
-        protected $base = 4;
-        protected $height = 7; 
+    $staff = new Staff;
 
-        public function GetArea(){
-        return .5*$this->base*$this->hight;
-        }
-        
-    }
+    $laracast = new Business($staff);
 
-    class Circle extends Shape{
-        Protected $radius = 12;
+    $laracast -> hire($jeffrey);
 
-        public function GetArea(){
-            return M_PI * pow($this->radius, 2);
-        }
-    }
-
-    $circle = new Circle;
-
-    echo $circle->GetArea();
-    echo "\n"
- 
- ?>
+    var_dump($staff);
+?>
