@@ -22,11 +22,9 @@ class Person {
         $this->age=$age;
     }
 }
-
 $michal = new Person("Michal Sztefanica");
 
 $michal -> setAge(30);
 $michal -> age = 3;
-
 
 var_dump($michal -> getAge());

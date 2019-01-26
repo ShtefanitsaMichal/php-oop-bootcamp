@@ -1,34 +1,23 @@
 <?php
-    
-
-
     class Person {
          protected $name; // 
-
          public function __cunstruct(){
              $this->name = $name; 
          }
     }
 
-
     class Business 
     {
-
         protected $staff;
-
         public function __cinstruct(Staff $staff)
         {
-            $this -> staff = $staff;
+            $this->staff=$staff;
         }
-
         public function hire(Person $person)
         {
-            $this -> staff->add($person);
-        }
-
-       
+            $this->staff->add($person);
+        }      
     }
-
     class Staff 
     {
         protected $members = [];
@@ -40,13 +29,11 @@
     }
 
     $michal = new Person('Michał Sztefanica');
-
+    $John = new Person('Joch Travolta');
     $staff = new Staff();
-
     $laracast = new Business($staff);
-    
-    $laracast->hire(michal);
 
+    $laracast->hire($michal);
     var_dump($staff);
 
 
